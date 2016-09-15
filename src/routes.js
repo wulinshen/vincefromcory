@@ -6,6 +6,8 @@ import AboutPage from './components/about/AboutPage';
 import CoursesPage from './components/course/CoursesPage';
 import ManageCoursePage from './components/course/ManageCoursePage';
 import SingerList from './components/singer/SingerList';
+import Profile from './components/refetch/Profile';
+
 
 
 export default (
@@ -16,5 +18,6 @@ export default (
     <Route path="course/:id" component={ManageCoursePage} />
     <Route path="courses" component={CoursesPage} />
     <Route path="singerlist" component={SingerList} />
+    <Route path="users" component={Profile} />
   </Route>
 );
