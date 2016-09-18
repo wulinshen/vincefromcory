@@ -3,53 +3,58 @@ import { connect, PromiseState } from 'react-refetch'
 import UserList from './UserList';
 import Error from './Error';
 import LoadingAnimation from './LoadingAnimation';
-import { Link } from 'react-router';
+import {Table} from 'react-bootstrap';
+
 
 
 class Profile extends React.Component {
 
   render() {
-    const { userFetch, deleteUser } = this.props
+    const { userFetch } = this.props
     //console.log("PromiseState.all([userFetch]): ", PromiseState.all([userFetch]).value)
-
 
     // compose multiple PromiseStates together to wait on them as a whole
     const allFetches = PromiseState.all([userFetch])
 
     // render the different promise states
     if (allFetches.pending) {
+      //alert ("allFetches.pending:", allFetches.pending); 
       return <LoadingAnimation/>
     } else if (allFetches.rejected) {
+      //alert ("allFetches.rejected:", allFetches.rejected);   
       return <Error error={allFetches.reason}/>
-    } else if (allFetches.fulfilled) {
+    } else 
+    
+    if (allFetches.fulfilled) {
       // decompose the PromiseState back into individual
       const [user] = allFetches.value
-      return (
-        <div>        
-        &nbsp;
-        
-     <Link to={'/manageuser'} >  <input type="button" value="Add Course" className="btn btn-primary" /> </Link>
+      //console.log("user: ", user);
 
-        <UserList deleteUser={deleteUser} data={user}/>
+      return (
+        <div className="jumbotron">  
+        <div>
+            {user.name}  
+            </div>
+            <div>
+            {user.people}  
+            </div>   
+          <img width="300" length="300"  src="http://www.ilsussidiario.net/img/_THUMBWEB/Pikachu_pokemon_wikipedia_thumb400x275.jpg" 
+          alt="..." className="img-thumbnail"/>
+                    
         </div>
       )
     }
   }
 }
 
+
 // declare the requests for fetching the data, assign them props, and connect to the component.
 export default connect(props => {
   return {
     // simple GET from a URL injected as `userFetch` prop
     // if `userId` changes, data will be refetched
-    userFetch: `https://vince2ndtry.herokuapp.com/cities`,
+    userFetch: `https://vince2ndtry.herokuapp.com/cities/${props.params.userId}`
    
-    deleteUser: (id)=> ({
-      deleteUserResponse: {
-        url: `https://vince2ndtry.herokuapp.com/cities/57df070c9c073f11003b46eb`,
-        method: 'DELETE'
-      }
-    })
   }
 })(Profile)
 

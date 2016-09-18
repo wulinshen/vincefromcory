@@ -8,14 +8,22 @@ class ManageCoursePage extends React.Component{
   constructor(props, context){
     super(props, context);
 
-    this.state={
-      course:Object.assign({},this.props.course),
-      errors:{}
-    };
+    // this.state={
+    //   course:Object.assign({},this.props.course),
+    //   errors:{}
+    // };
 
     this.updateCourseState=this.updateCourseState.bind(this);
     this.saveCourse=this.saveCourse.bind(this);
   }
+  
+  componentWillMount(){
+     this.state={
+      course:Object.assign({},this.props.course),
+      errors:{}
+    };
+  }
+
 
   componentWillReceiveProps(nextProps){
     if (this.props.course.id!=nextProps.course.id){
@@ -24,10 +32,11 @@ class ManageCoursePage extends React.Component{
   }
 
   updateCourseState(event){
-    const field = event.target.name;
-    let course = this.state.course;
-    course[field] = event.target.value;
-    return this.setState({course});
+    // const field = event.target.name;
+    // let course = this.state.course;
+    // course[field] = event.target.value;
+    // return this.setState({course});
+    console.log("updateUserState from ManageCoursePage");
   }
 
   saveCourse(event){

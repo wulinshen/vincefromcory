@@ -2,9 +2,9 @@ import React from 'react'
 
 const LoadingAnimation = () => {
     return (
-        <div>
-            LoadingAnimation Page
-        </div>
+        <h1>
+        Loading... ... ...
+        </h1>
     )
 }
 

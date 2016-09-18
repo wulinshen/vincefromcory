@@ -7,6 +7,10 @@ import CoursesPage from './components/course/CoursesPage';
 import ManageCoursePage from './components/course/ManageCoursePage';
 import SingerList from './components/singer/SingerList';
 import Profile from './components/refetch/Profile';
+import User from './components/refetch/User';
+import DetailUser from './components/refetch/DetailUser';
+import ManageUserPage from './components/refetch/ManageUserPage';
+
 
 
 
@@ -19,5 +23,7 @@ export default (
     <Route path="courses" component={CoursesPage} />
     <Route path="singerlist" component={SingerList} />
     <Route path="users" component={Profile} />
+    <Route path="manageuser" component={ManageUserPage} />
+    <Route path="users/:userId" component={DetailUser} />
   </Route>
 );
