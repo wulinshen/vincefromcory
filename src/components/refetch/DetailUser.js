@@ -7,7 +7,7 @@ import {Table} from 'react-bootstrap';
 
 
 
-class Profile extends React.Component {
+class DetailUser extends React.Component {
 
   render() {
     const { userFetch } = this.props
@@ -56,6 +56,6 @@ export default connect(props => {
     userFetch: `https://vince2ndtry.herokuapp.com/cities/${props.params.userId}`
    
   }
-})(Profile)
+})(DetailUser)
 
 

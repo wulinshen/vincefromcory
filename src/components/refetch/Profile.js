@@ -42,14 +42,9 @@ export default connect(props => {
   return {
     // simple GET from a URL injected as `userFetch` prop
     // if `userId` changes, data will be refetched
-    userFetch: `https://vince2ndtry.herokuapp.com/cities`,
+    userFetch: `https://vince2ndtry.herokuapp.com/cities`
    
-    deleteUser: (id)=> ({
-      deleteUserResponse: {
-        url: `https://vince2ndtry.herokuapp.com/cities/57df070c9c073f11003b46eb`,
-        method: 'DELETE'
-      }
-    })
+   
   }
 })(Profile)
 

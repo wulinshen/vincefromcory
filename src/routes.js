@@ -10,6 +10,7 @@ import Profile from './components/refetch/Profile';
 import User from './components/refetch/User';
 import DetailUser from './components/refetch/DetailUser';
 import ManageUserPage from './components/refetch/ManageUserPage';
+import DeleteUser from './components/refetch/DeleteUser';
 
 
 
@@ -25,5 +26,7 @@ export default (
     <Route path="users" component={Profile} />
     <Route path="manageuser" component={ManageUserPage} />
     <Route path="users/:userId" component={DetailUser} />
+    <Route path="deleteuser/:userId" component={DeleteUser} />
+
   </Route>
 );
